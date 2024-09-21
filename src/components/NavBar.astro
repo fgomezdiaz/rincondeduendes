@@ -1,0 +1,74 @@
+---
+import { Image } from 'astro:assets';
+import LOGO from '../images/LOGO.svg';
+
+
+---
+
+<nav class="flex px-5 justify-between items-center w-full mb-8 mt-4">
+    <div>
+        <a href="/">
+          <Image src={LOGO} alt={"Rincón de Duendes"} width={80} height={80} class='object-cover object-center' />
+        </a>
+    </div>
+
+    
+      {/* Botón de Menú para pantallas pequeñas */}
+      <button id="menu-toggle" class="sm:hidden p-2 focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+      </button>
+
+
+      <!-- Menú desplegable en pantallas pequeñas -->
+      <div id="mobile-menu" style="display: none;" class="absolute top-16 left-1/2 transform -translate-x-1/2 bg-white shadow-lg z-50 flex-col sm:hidden w-auto p-4 rounded-lg transition-all">
+        <a class="block m-2 p-2 rounded-md transition-all hover:bg-gray-100" href="/">Todo</a>
+        <a class="block m-2 p-2 rounded-md transition-all hover:bg-gray-100" href="/libros">Libros</a>
+        <a class="block m-2 p-2 rounded-md transition-all hover:bg-gray-100" href="/juguetes">Juguetes</a>
+        <!-- <a class="block m-2 p-2 rounded-md transition-all hover:bg-gray-100" href="/">Cuentacuentos</a> -->
+        <a class="block m-2 p-2 rounded-md transition-all hover:bg-gray-100" href="/nuestro-objetivo">Nuestro objetivo</a>
+      </div>
+
+      {/* Menú para pantallas grandes */}
+      <div class="hidden sm:flex">
+        <a class="m-2 p-2 rounded-md transition-all hover:bg-gray-100" href="/">Todo</a>
+        <a class="m-2 p-2 rounded-md transition-all hover:bg-gray-100" href="/libros">Libros</a>
+        <a class="m-2 p-2 rounded-md transition-all hover:bg-gray-100" href="/juguetes">Juguetes</a>
+        <!-- <a class="m-2 p-2 rounded-md transition-all hover:bg-gray-100" href="/">Cuentacuentos</a> -->
+        <a class="m-2 p-2 rounded-md transition-all hover:bg-gray-100" href="/nuestro-objetivo">Nuestro onjetivo</a>
+      </div>
+
+
+    {/* Search, Cart, Menu */}
+    <div class="flex items-center">
+      <a href="/search" class="mx-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M11 19a8 8 0 1 1 0-16 8 8 0 0 1 0 16z" />
+        </svg>
+      </a>
+    </div>
+  </nav>
+  
+
+  <!-- Script para manejar el evento de clic -->
+<script>
+  document.addEventListener('astro:page-load', () => {
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  if (!menuToggle || !mobileMenu) {
+    console.error('Elementos no encontrados');
+    return;
+  }
+
+  menuToggle.addEventListener('click', () => {
+    //console.log('¡onclick')
+    if (mobileMenu.style.display === 'none' || !mobileMenu.style.display) {
+      mobileMenu.style.display = 'flex'; // Asegúrate de que el menú se muestre como un contenedor flex
+    } else {
+      mobileMenu.style.display = 'none';
+    }
+  });
+});
+</script>

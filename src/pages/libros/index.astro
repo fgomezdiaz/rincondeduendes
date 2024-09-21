@@ -1,0 +1,62 @@
+---
+import { Image } from 'astro:assets';
+
+import portada_libreria from '../../images/portada_libreria2.png';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout>
+    
+    <div class="container mx-auto px-12 py-8 ">
+                {/* Sección principal */}
+    
+        <!-- <div class="flex flex-col md:flex-row items-center mb-12">
+            {/* Imágen */}
+            <div class="md:w-1/2 mb6 md:mb-0 ">
+                <Image
+                    src={portada_libreria}
+                    alt="Imagen"
+                    width={600}
+                    height={320}
+                    class="object-cover object-center rounded-lg shadow-lg"
+                />
+
+            </div>
+            {/* Texto */} 
+            <div class="mt-4 md:mt-0 md:w-1/2 pl-4 lg:pl-3">
+                <h1 class="sm:text-4xl text-3xl mb-4 font-medium">Jugar, crecer y cuidar el planeta</h1>
+                <p class="mb-4 md:mb-8 leading-relaxed text-lg">
+
+                    Nuestros juguetes de madera eco-friendly están diseñados para estimular el desarrollo y la creatividad de los niños mientras respetan el medio ambiente. Fabricados con materiales sostenibles, cada juguete es una invitación a la exploración, el juego imaginativo y el aprendizaje a través del tacto. En nuestra juguetería, creemos que la diversión y el cuidado del planeta pueden ir de la mano.
+                </p>
+            </div>
+        </div> -->
+
+        <section >
+			<div class="mx-auto flex px-8 py-2 lg:py-0 lg:flex-row flex-col items-center ">
+				<div class=" lg:w-1/2 w-full pl-0 lg:pl-20 z-10">
+					<h1 class="sm:text-4xl text-3xl mb-4 font-medium italic">Jugar, crecer y cuidar el planeta</h1>
+					<blockquote class="text-xl italic font-semibold text-gray-900">
+						<svg class="w-8 h-8 text-gray-400 dark:text-gray-600 mb-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 14">
+							<path d="M6 0H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3H2a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Zm10 0h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3h-1a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Z"/>
+						</svg>
+                    
+                    <p class="mb-4 md:mb-8">“Nuestros juguetes de madera eco-friendly están diseñados para estimular el desarrollo y la creatividad de los niños mientras respetan el medio ambiente. Fabricados con materiales sostenibles, cada juguete es una invitación a la exploración, el juego imaginativo y el aprendizaje a través del tacto. En nuestra juguetería, creemos que la diversión y el cuidado del planeta pueden ir de la mano.”</p>
+					</blockquote>
+				</div>
+				<div class="w-full lg:w-1/2 flex flex-col items-start text-left mb-8 md:mb-0 lg:order-first">
+					<Image
+						src={portada_libreria}
+						alt="Imagen"
+						width={1110}
+						height={340}
+						class="object-cover object-center rounded-2xl "
+					/>
+				</div>
+			</div>
+		</section>
+
+        
+    </div>
+</BaseLayout>
+
