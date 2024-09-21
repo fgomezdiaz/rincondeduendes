@@ -1,5 +1,5 @@
 ---
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter, ViewTransitions } from "astro:transitions";
 import NavBar from "../components/NavBar.astro";
 
 interface Props{
@@ -17,7 +17,7 @@ const { title = "Rincón de Duendes" } = Astro.props;
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
-        <ViewTransitions />
+        <ClientRouter />
 	</head>
 	<body>
         <a href="/">Regresar</a>
@@ -35,7 +35,7 @@ const { title = "Rincón de Duendes" } = Astro.props;
 			<footer class="w-full justify-center items-center bottom-0 text-center ">
 				<div class="flex justify-center gap-1 pb-2 md:pb-4 pt-0 md:pt-4">
 					<span class="text-default-600">Powered by</span>
-					<p class="text-primary text-yellow-500">Rincón de Duendes</p>
+					<p class="text-yellow-500">Rincón de Duendes</p>
 				</div>
 
 			</footer>
