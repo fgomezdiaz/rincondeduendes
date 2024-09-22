@@ -18,5 +18,5 @@ export default defineConfig({
   // adapter: node({
   //   mode: 'standalone',
   // }),
-  adapter: vercel(),
+  adapter: vercel({webAnalytics: { enabled: true }}),
 });
