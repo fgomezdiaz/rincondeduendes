@@ -1,6 +1,8 @@
 ---
 import { ClientRouter } from "astro:transitions";
 import NavBar from "../components/NavBar.astro";
+import TabJuguetesSelect from "../components/ui/TabJuguetesSelect.astro";
+
 
 interface Props{
 	title?: string;
@@ -21,14 +23,13 @@ const { title = "Rincón de Duendes" } = Astro.props;
 	</head>
 	<body>
         <div class="min-h-screen flex flex-col h-screen overflow-y-hidden bg-gradient-to-r from-white  via-gray-200 to-white ">
+			<NavBar  />
 
-            <NavBar  />
-
-            <div class="flex-1 flex flex-row overflow-y-hidden ">
-				<main class="flex-1 overflow-y-auto">
-					<slot />
-				</main>
-    		</div>
+         	<slot />
+			<!-- <main class="overflow-y-auto">
+			</main> -->
+            <!-- <div class="flex flex-row overflow-y-hidden ">
+    		</div> -->
 
 
 			<footer class="w-full justify-center items-center bottom-0 text-center ">
@@ -44,3 +45,5 @@ const { title = "Rincón de Duendes" } = Astro.props;
         
 	</body>
 </html>
+
+<style is:global>

@@ -1,0 +1,31 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
+
+interface Props {
+  marca: CollectionEntry<'marcas'>;
+}
+
+const { marca } = Astro.props;
+---
+
+  <div class="card  glass shadow-md w-full mb-4 ">
+    <figure>
+        <Image
+        class="object-cover w-full h-48 rounded-sm "
+        src={marca.data.imagen}
+        alt={marca.data.nombre}
+        height={500}
+        width={500}
+        quality="mid"
+        loading="lazy"
+      />
+    </figure>
+    <div class="card-body  bg-grid-pattern">
+      <h2 class="mb-1 text-3xl font-semibold text-gray-800 font-serif">{marca.data.nombre}</h2>
+      <p class="mb-2 text-sm text-gray-600 leading-relaxed">{marca.data.descripcion}</p>
+      <div class="card-actions justify-end">
+        <button class="btn btn-primary rounded-xl">Ver!</button>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,30 @@
+---
+
+import { getCollection, getEntries, getEntry } from "astro:content"
+
+//const params = Astro.params
+
+export async function getStaticPaths() {
+  const marcas = await getCollection('marcas');
+  return marcas.map(marca => ({
+    params: { id: marca.id },
+    props: { marca },
+  }));
+}
+
+
+//const marca = await getEntry("marcas", params.id || '')
+
+const {marca} = Astro.props
+
+const articulos = await getCollection('articulos', ({data}) => {
+  return data.marca.id === marca.id
+})
+
+//console.log(marca)
+console.log(articulos)
+
+//export const prerender = false
+---
+
+<h1>Marca</h1>

@@ -1,18 +1,43 @@
 ---
-
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+const marcasEntries = await getCollection('marcas');
 
 
 ---
 
-<div class="flex mx-auto">
-    <div role="tablist" class="tabs tabs-lifted max-w-80">
-        <a role="tab" class="tab">Por Marca</a>
-        <a
-          role="tab"
-          class="tab tab-active text-primary [--tab-bg:yellow] [--tab-border-color:orange]">
-          Por categoría
-        </a>
-        <a role="tab" class="tab"></a>
-      </div>
+<nav class="flex mx-auto items-center fixed w-full z-20 ">
+  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto ">
 
-</div>
+    <div class="dropdown dropdown-hover">
+      <div tabindex="0" role="button" class="btn m-1 bg-blue-400">Elegir Marca</div>
+      <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+        {
+          marcasEntries.map((marca) => (
+          <li><a>
+              <Image
+                class="object-cover w-full rounded-sm "
+                src={marca.data.avatar || ''}
+                alt={marca.data.nombre}
+                height={30 }
+                width={30}
+                quality="mid"
+                loading="lazy"
+              />
+            {marca.data.nombre}</a></li>
+          ))
+      }
+      </ul>
+    </div>
+    <div class="dropdown dropdown-hover">
+      <div tabindex="0" role="button" class="btn m-1">Elegir Categoría</div>
+      <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+        <li><a>Item 1</a></li>
+        <li><a>Item 2</a></li>
+      </ul>
+    </div>
+  </div>
+
+
+
+</nav>

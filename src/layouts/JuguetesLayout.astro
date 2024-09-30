@@ -1,14 +1,16 @@
 ---
+import TabJuguetesSelect from "../components/ui/TabJuguetesSelect.astro";
 import BaseLayout from "./BaseLayout.astro";
 
 ---
 
-<BaseLayout>
+<BaseLayout title="Juguetes">
 
-    <div class="flex flex-col">
-        <!-- <TabJuguetesSelect  /> -->
-        <slot />
+    <div class="mb-16">
+        <TabJuguetesSelect  />
     </div>
+    
+    <slot />
 
 
 </BaseLayout>

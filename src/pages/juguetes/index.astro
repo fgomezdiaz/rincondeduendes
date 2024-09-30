@@ -1,18 +1,30 @@
 ---
-import { Image } from 'astro:assets';
 
-import creativas_8 from '../../images/creativas_8.jpg';
+import { getCollection } from 'astro:content';
+const marcasEntries = await getCollection('marcas');
 
 import JuguetesLayout from '../../layouts/JuguetesLayout.astro';
+import CardMarca from '../../components/CardMarca.astro';
+
 ---
 
 
 <JuguetesLayout>
     
-    <div class="container mx-auto px-2 md:px-12 py-8  ">
-                {/* Sección principal */}
+    <div class="flex flex-1 overflow-y-auto">
+        {/* Sección principal */}
+        <div class="grid grid-cols-1 md:gap-4 md:grid-cols-2 lg:grid-cols-4 px-4">
+        {
+            marcasEntries.map((marca) => (
+                <CardMarca marca={marca} />
+            ))
+
+        }
+        </div>
+
+    </div>
     
-        <section >
+        <!-- <section >
 			<div class="mx-auto flex px-8 py-2 lg:py-0 lg:flex-row flex-col items-center ">
                 <div class="w-full lg:w-1/2 flex flex-col items-start text-left mb-8 md:mb-0 lg:order-first">
                     <Image
@@ -34,9 +46,20 @@ import JuguetesLayout from '../../layouts/JuguetesLayout.astro';
 
 				</div>
 			</div>
-		</section>
+		</section> -->
+        <!-- <section class="bg-white dark:bg-gray-900">
+            <div class="container px-6 py-10 mx-auto">
+              <h1
+                class="text-3xl font-semibold text-gray-800 capitalize lg:text-4xl dark:text-white"
+              >
+                {siteConfig.title}
+              </h1>
+        
+              <div class="grid grid-cols-1 gap-8 mt-8 md:mt-16 md:grid-cols-2">
+                {blogPosts.map((post) => <TypedBlogPost post={post} />)}
+              </div>
+            </div>
+          </section> -->
 
-
-    </div>
 </JuguetesLayout>
 
