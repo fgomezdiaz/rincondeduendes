@@ -9,7 +9,7 @@ interface Props {
 const { marca } = Astro.props;
 ---
 
-  <div class="card  glass shadow-md w-full mb-4 ">
+  <div class="card glass shadow-md  ">
     <figure>
         <Image
         class="object-cover w-full h-48 rounded-sm "
@@ -17,15 +17,15 @@ const { marca } = Astro.props;
         alt={marca.data.nombre}
         height={500}
         width={500}
-        quality="mid"
+        quality="high"
         loading="lazy"
       />
     </figure>
     <div class="card-body  bg-grid-pattern">
       <h2 class="mb-1 text-3xl font-semibold text-gray-800 font-serif">{marca.data.nombre}</h2>
-      <p class="mb-2 text-sm text-gray-600 leading-relaxed">{marca.data.descripcion}</p>
+      <p class="mb-1 text-sm text-gray-600 leading-relaxed">{marca.data.descripcion}</p>
       <div class="card-actions justify-end">
-        <button class="btn btn-primary rounded-xl">Ver!</button>
+        <button class="btn btn-link">Ver artículos</button>
       </div>
     </div>
   </div>
