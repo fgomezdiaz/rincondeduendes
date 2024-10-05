@@ -1,6 +1,6 @@
 {
     "nombre": "Ocamora",
     "descripcion": "Ocamora es una marca de juguetes de madera que nace en 2016 en Córdoba de la mano de Gregorio y Laura, una pareja de artesanos que deciden crear juguetes que fomenten la creatividad y la imaginación de los más pequeños.",
-    "imagen": "./imagenes/ocamora.webp",
-    "avatar": "./imagenes/avatar-ocamora.png"
+    "avatar": "./imagenes/avatar-ocamora.png",
+    "imagenCloudinary":"marcas/imagenes/ocamora_lt7jdo"
 }

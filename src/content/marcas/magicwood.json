@@ -1,6 +1,6 @@
 {
     "nombre": "Magic Wood",
     "descripcion": "Magic Wood fué fundada por Daniel Schöning y su equipo en Alemania. Con una visión enfocada en crear juguetes sostenibles y de calidad, comenzaron la empresa en 1997.",
-    "imagen": "./imagenes/magicwood.webp",
-    "avatar": "./imagenes/avatar-magicwood.jpg"
+    "avatar": "./imagenes/avatar-magicwood.jpg",
+    "imagenCloudinary":"marcas/imagenes/magicwood_jdyoxq"
 }

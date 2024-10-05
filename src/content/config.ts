@@ -5,8 +5,8 @@ const marcasCollection = defineCollection({
     schema: ({image}) => z.object({
         nombre: z.string(),
         descripcion: z.string(),
-        imagen: image(),
         avatar: image(),
+        imagenCloudinary: z.string(),
     })
 })
 

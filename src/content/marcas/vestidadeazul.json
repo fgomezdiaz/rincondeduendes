@@ -1,6 +1,6 @@
 {
     "nombre": "Vestida de Azul",
     "descripcion": "Vestida de Azul es una marca argentina de ropa para bebés y niños. Sus prendas son de alta calidad y están diseñadas con mucho cariño y cuidado.",
-    "imagen": "./imagenes/vestidadeazul.jpg",
-    "avatar": "./imagenes/avatar-vestidadeazul.png"
+    "avatar": "./imagenes/avatar-vestidadeazul.png",
+    "imagenCloudinary":"marcas/imagenes/vestidadeazul_mohqyh"
 }

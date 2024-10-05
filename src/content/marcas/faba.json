@@ -1,6 +1,6 @@
 {
     "nombre": "Faba",
     "descripcion": "Faba es una marca de juguetes italiana fundada en 2019, especializada en productos interactivos que combinan narración de cuentos y tecnología.",
-    "imagen": "./imagenes/faba.webp",
-    "avatar": "./imagenes/avatar-faba.png"
+    "avatar": "./imagenes/avatar-faba.png",
+    "imagenCloudinary":"marcas/imagenes/faba_a8rt96"
 }

@@ -1,7 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { Image } from 'astro:assets';
-
+import { CldImage } from 'astro-cloudinary';
 interface Props {
   marca: CollectionEntry<'marcas'>;
 }
@@ -9,7 +9,55 @@ interface Props {
 const { marca } = Astro.props;
 ---
 
-  <div class="card glass ">
+<div class="w-full max-w-md mx-auto border rounded-md flex flex-col shadow-sm ">
+  <div class="p-0">
+
+      <CldImage
+      class="object-cover w-full h-48 rounded-t-lg  "
+      src={marca.data.imagenCloudinary || ''}
+      width={1000}
+      height={1000}
+      alt={marca.data.nombre}
+
+    />
+
+  </div>
+  <div class=" flex flex-1 p-4">
+    <div class="flex items-start space-x-4">
+      <Image
+            class="object-cover h-10 w-10 rounded-full"
+            src={marca.data.avatar || ''}
+            alt={marca.data.nombre}
+            height={30 }
+            width={30}
+            quality="mid"
+            loading="lazy"
+          />
+      <!-- <Avatar class="h-10 w-10">
+        <AvatarImage src="/placeholder.svg?height=40&width=40" alt="Avatar" />
+        <AvatarFallback>AF</AvatarFallback>
+      </Avatar> -->
+      <div>
+        <h2 class="text-xl font-semibold">{marca.data.nombre}</h2>
+        <p class="text-sm text-gray-500 text-justify ">{marca.data.descripcion}</p>
+      </div>
+    </div>
+  </div>
+  <div class="px-4 py-3 border-t flex justify-end space-x-4">
+    <div class="h-5 w-5 text-blue-500">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+      </svg>
+      
+    </div>
+    <!-- <Settings className="h-5 w-5 text-gray-500" />
+    <Pencil className="h-5 w-5 text-gray-500" />
+    <MoreHorizontal className="h-5 w-5 text-gray-500" /> -->
+  </div>
+</div>
+
+
+  <!-- <div class="card glass ">
     <figure >
         <Image
         class="object-cover w-full h-48 rounded-sm  "
@@ -28,4 +76,4 @@ const { marca } = Astro.props;
         <button class="btn btn-link ">Ver artículos</button>
       </div>
     </div>
-  </div>
+  </div> -->

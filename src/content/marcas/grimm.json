@@ -1,6 +1,6 @@
 {
     "nombre": "Grimm's",
     "descripcion": "Es una marca alemana de juguetes de madera que nace en 1978 de la mano de la familia Grimm. Sus juguetes están hechos a mano y son de madera natural, sin barnices ni tintes. ",
-    "imagen": "./imagenes/grimm.jpg",
-    "avatar": "./imagenes/avatar-grimm.png"
+    "avatar": "./imagenes/avatar-grimm.png",
+    "imagenCloudinary":"marcas/imagenes/grimm_olhptk"
 }
