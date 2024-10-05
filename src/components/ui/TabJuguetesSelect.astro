@@ -9,12 +9,12 @@ const marcasEntries = await getCollection('marcas');
 <nav class="flex mx-auto items-center fixed w-full z-20 ">
   <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto ">
 
-    <div class="dropdown dropdown-hover">
+    <div class="dropdown dropdown-hover dropdown-center">
       <div tabindex="0" role="button" class="btn m-1 bg-blue-400">Elegir Marca</div>
-      <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+      <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-80 p-2 shadow grid grid-cols-2 ">
         {
           marcasEntries.map((marca) => (
-          <li><a>
+          <li class="p-0"><a>
               <Image
                 class="object-cover w-full rounded-sm "
                 src={marca.data.avatar || ''}
@@ -32,8 +32,8 @@ const marcasEntries = await getCollection('marcas');
     <div class="dropdown dropdown-hover">
       <div tabindex="0" role="button" class="btn m-1">Elegir Categoría</div>
       <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-        <li><a>Item 1</a></li>
-        <li><a>Item 2</a></li>
+        <li><a>En construcción</a></li>
+        <!-- <li><a>Item 2</a></li> -->
       </ul>
     </div>
   </div>
