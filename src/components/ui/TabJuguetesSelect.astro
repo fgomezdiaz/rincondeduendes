@@ -6,11 +6,16 @@ const marcasEntries = await getCollection('marcas');
 
 ---
 
-<nav class="flex mx-auto items-center fixed w-full z-20 ">
+<nav class="flex mx-auto items-center fixed w-full z-20 mt-4 md:mt-2">
   <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto ">
 
     <div class="dropdown dropdown-hover dropdown-center">
-      <div tabindex="0" role="button" class="btn m-1 bg-blue-400">Elegir Marca</div>
+      <!-- <div tabindex="0" role="button" class="btn m-1 bg-blue-400">Elegir Marca</div> -->
+      <button class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-teal-300 to-lime-300 group-hover:from-teal-300 group-hover:to-lime-300  focus:ring-4 focus:outline-none focus:ring-lime-200 ">
+        <span class="relative px-5 py-1 transition-all ease-in duration-75 bg-gray-200  rounded-md group-hover:bg-opacity-0">
+        Elegir Marca
+        </span>
+      </button> 
       <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-80 p-2 shadow grid grid-cols-2 ">
         {
           marcasEntries.map((marca) => (
@@ -30,7 +35,12 @@ const marcasEntries = await getCollection('marcas');
       </ul>
     </div>
     <div class="dropdown dropdown-hover">
-      <div tabindex="0" role="button" class="btn m-1">Elegir Categoría</div>
+      <!-- <div tabindex="0" role="button" class="btn m-1">Elegir Categoría</div> -->
+      <button class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-teal-300 to-lime-300 group-hover:from-teal-300 group-hover:to-lime-300  focus:ring-4 focus:outline-none focus:ring-lime-200 ">
+        <span class="relative px-5 py-1 transition-all ease-in duration-75 bg-gray-200  rounded-md group-hover:bg-opacity-0">
+        Elegir Categoría
+        </span>
+      </button> 
       <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
         <li><a>En construcción</a></li>
         <!-- <li><a>Item 2</a></li> -->
