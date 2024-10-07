@@ -15,6 +15,8 @@ const marcasEntries = await getCollection('marcas');
         <span class="relative px-5 py-1 transition-all ease-in duration-75 bg-gray-200  rounded-md group-hover:bg-opacity-0">
         Elegir Marca
         </span>
+        <span class="absolute inset-x-0 bottom-[1px] px-2 rainbow-border h-[1px] rounded-badge"></span>
+
       </button> 
       <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-80 p-2 shadow grid grid-cols-2 ">
         {
@@ -35,12 +37,14 @@ const marcasEntries = await getCollection('marcas');
       </ul>
     </div>
     <div class="dropdown dropdown-hover">
-      <!-- <div tabindex="0" role="button" class="btn m-1">Elegir Categoría</div> -->
+      
       <button class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-teal-300 to-lime-300 group-hover:from-teal-300 group-hover:to-lime-300  focus:ring-4 focus:outline-none focus:ring-lime-200 ">
+        <span class="absolute inset-x-0 bottom-[1px] px-2 rainbow-border h-[1px] rounded-badge "></span>
         <span class="relative px-5 py-1 transition-all ease-in duration-75 bg-gray-200  rounded-md group-hover:bg-opacity-0">
-        Elegir Categoría
+          Elegir Categoría
         </span>
       </button> 
+      
       <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
         <li><a>En construcción</a></li>
         <!-- <li><a>Item 2</a></li> -->
@@ -50,4 +54,21 @@ const marcasEntries = await getCollection('marcas');
 
 
 
+
 </nav>
+
+<style>
+  .rainbow-border {
+          background: linear-gradient(90deg, #ffff00, #00ff00, #ffff00, #00ff00, #ffff00, #00ff00);
+          background-size: 600% 600%;
+          animation: rainbow 6s linear infinite;
+        }
+        @keyframes rainbow {
+          0% {
+            background-position: 0% 50%;
+          }
+          100% {
+            background-position: 100% 50%;
+          }
+        }
+</style>
