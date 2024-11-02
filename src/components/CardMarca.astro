@@ -2,6 +2,7 @@
 import type { CollectionEntry } from 'astro:content';
 import { Image } from 'astro:assets';
 import { CldImage } from 'astro-cloudinary';
+import LOGO from '../images/LOGO2.png';
 interface Props {
   marca: CollectionEntry<'marcas'>;
 }
@@ -11,16 +12,17 @@ const { marca } = Astro.props;
 
 <div class="w-full max-w-md mx-auto border rounded-md flex flex-col shadow-sm ">
   <div class="p-0">
+        <a href={`/juguetes/marca/${marca.id}`}>
+          <CldImage
+          class="object-cover w-full h-48 rounded-t-lg  "
+          src={marca.data.imagenCloudinary || ''}
+          width={1000}
+          height={1000}
+          alt={marca.data.nombre}
 
-      <CldImage
-      class="object-cover w-full h-48 rounded-t-lg  "
-      src={marca.data.imagenCloudinary || ''}
-      width={1000}
-      height={1000}
-      alt={marca.data.nombre}
-
-    />
-
+          />
+        </a>
+  
   </div>
   <div class=" flex flex-1 p-4">
     <div class="flex items-start space-x-4">
@@ -43,8 +45,23 @@ const { marca } = Astro.props;
       </div>
     </div>
   </div>
-  <div class="px-4 py-3 border-t flex justify-end space-x-4">
-    <div class="h-5 w-5 text-blue-500">
+  <div class="px-4 py-3 border-t flex items-center justify-center space-x-4">
+    {
+      marca.data.distribuidorAutorizado && 
+        <div class="flex flex-row gap-2 items-center justify-start flex-1 ">
+          <div class="">
+            <Image src={LOGO} alt={"Rincón de Duendes"} width={50} height={50} class='object-cover object-center' />
+          </div>
+
+          <div class="flex items-center justify-center bg-gray-50 p-2 rounded-md shadow-sm text-sm text-gray-600">
+            <span class="text-center italic font-semibold">
+              <strong>Distribuidor autorizado</strong>
+            </span>
+          </div>
+        </div>
+      
+    }
+    <div class="h-5 w-5 text-blue-500 ">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
         <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
       </svg>

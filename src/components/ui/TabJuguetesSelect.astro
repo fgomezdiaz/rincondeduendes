@@ -1,14 +1,24 @@
 ---
 import { Image } from 'astro:assets';
-import { getCollection } from 'astro:content';
+import { getCollection, getEntry } from 'astro:content';
 const marcasEntries = await getCollection('marcas');
 
+const nombre = async() => {
+  if (Astro.url.toString().includes('/juguetes/marca')) {
+    const params = Astro.params
+    const marca = await getEntry("marcas", params.id || '')
+    return `[${marca!.data.nombre}]`
+  }
+  return ''
+}
 
 ---
 
 <nav class="flex mx-auto items-center fixed w-full z-20 mt-4 md:mt-2">
   <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto ">
-
+    <div class="mb-2 mr-6 text-2xl italic">
+      {nombre}
+    </div>
     <div class="dropdown dropdown-hover dropdown-center">
       <!-- <div tabindex="0" role="button" class="btn m-1 bg-blue-400">Elegir Marca</div> -->
       <button class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-teal-300 to-lime-300 group-hover:from-teal-300 group-hover:to-lime-300  focus:ring-4 focus:outline-none focus:ring-lime-200 ">
@@ -21,7 +31,7 @@ const marcasEntries = await getCollection('marcas');
       <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-80 p-2 shadow grid grid-cols-2 ">
         {
           marcasEntries.map((marca) => (
-          <li class="p-0"><a>
+          <li class="p-0"><a href=`/juguetes/marca/${marca.id}`>
               <Image
                 class="object-cover w-full rounded-sm "
                 src={marca.data.avatar || ''}

@@ -7,6 +7,7 @@ const marcasCollection = defineCollection({
         descripcion: z.string(),
         avatar: image(),
         imagenCloudinary: z.string(),
+        distribuidorAutorizado: z.optional(z.boolean()),
     })
 })
 
@@ -23,10 +24,11 @@ export const articulosCollection = defineCollection({
     schema: z.object({
         id: z.string(),
         titulo: z.string(),
-        descripcion: z.string(),
+        descripciones: z.array(z.string()),
         precio: z.string(),
         marca: reference('marcas'),
         categoria: z.array(reference("categoriasCollection")),
+        referencias: z.array(z.string()),
         imagenes: z.array(z.string()),
     })
 })

@@ -2,6 +2,7 @@
     "nombre": "Grapat",
     "descripcion": "Es una marca de juguetes de madera que nace de la mano de Casiana y Jordi, una pareja de artesanos que deciden crear juguetes que fomenten la creatividad y la imaginación de los más pequeños.",
     "avatar": "./imagenes/avatar-grapat.png",
-    "imagenCloudinary":"marcas/imagenes/grapat_op6osf"
+    "imagenCloudinary":"marcas/imagenes/grapat_op6osf",
+    "distribuidorAutorizado": true
 }
 

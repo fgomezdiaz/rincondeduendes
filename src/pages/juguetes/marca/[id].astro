@@ -1,8 +1,12 @@
 ---
 
-import { getCollection, getEntries, getEntry } from "astro:content"
+import { getCollection } from "astro:content"
+import CardArticulo from "../../../components/CardArticulo.astro";
+import JuguetesLayout from "../../../layouts/JuguetesLayout.astro";
 
 //const params = Astro.params
+//console.log(Astro.url.toString())
+
 
 export async function getStaticPaths() {
   const marcas = await getCollection('marcas');
@@ -12,6 +16,10 @@ export async function getStaticPaths() {
   }));
 }
 
+// if (Astro.url.toString().includes('/juguetes/marca')) {
+//   const {marca} = Astro.props
+//   console.log(marca.data)
+// }
 
 //const marca = await getEntry("marcas", params.id || '')
 
@@ -22,9 +30,24 @@ const articulos = await getCollection('articulos', ({data}) => {
 })
 
 //console.log(marca)
-console.log(articulos)
+//console.log(articulos)
 
 //export const prerender = false
 ---
 
-<h1>Marca</h1>
+<JuguetesLayout>
+    
+  <div class="flex flex-1 overflow-y-auto mb-0 mt-2  md:mb-2 ">
+      {/* Sección principal */}
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 px-4 md:px-10 lg:px-40 gap-4">
+      {
+          articulos.map(articulo => (
+              <CardArticulo articulo={articulo} />
+          ))
+
+      }
+      </div>
+</div>
+
+</JuguetesLayout>
+

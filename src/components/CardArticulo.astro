@@ -1,0 +1,100 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { CldImage } from 'astro-cloudinary';
+interface Props {
+  articulo: CollectionEntry<'articulos'>;
+}
+
+const { articulo } = Astro.props;
+
+---
+  <div class="w-full max-w-md  mx-auto border rounded-md flex flex-col max-h-[450px] bg-gradient-to-br from-gray-50 via-gray-100 to-gray-300 " id="principal" data-articulo={JSON.stringify(articulo.data)}>
+    <div class="p-0" >
+  
+          <img
+          id='mainImage'
+          class="object-cover w-full h-48 rounded-t-lg  "
+          src={articulo.data.imagenes[0] || ''}
+          width={1500}
+          height={1000}
+          alt={articulo.data.titulo}
+  
+          />
+    
+    </div>
+    <div class=" flex flex-1 p-4">
+      <div id="thumbnailGallery" class="grid grid-cols-6 gap-2">
+        {articulo.data.imagenes.map((imagen, index) => (
+          <button
+            class={`thumbnail relative aspect-square rounded-md overflow-hidden ${index === 0 ? 'ring-2 ring-primary ring-offset-2' : ''}`}
+            data-index={index}
+          >
+            <CldImage
+              src={imagen}
+              alt={`Thumbnail ${index + 1}`}
+              width={90}
+              height={90}
+              class="w-full h-full object-cover"
+            />
+          </button>
+        ))}
+      </div>
+    </div>
+    <div>
+      <p class="text-xl px-4 pt-2 font-bold border-b-2 pb-2" > 
+        <span id="descripcion" class="text-gray-500">{articulo.data.descripciones[0]}</span></p>
+      <p class="text-xl px-4 pt-2 font-semibold" > 
+       Referencia: <span id="referencia" class="text-gray-500">{articulo.data.referencias[0]}</span></p>
+      <p class="text-xl px-4 pt-2 font-semibold " >
+        PVP: <span id="precio" class="text-gray-500">{articulo.data.precio}</span></p>
+    </div>
+    <div class="px-4 py-3 border-t flex items-center justify-center space-x-4">
+      <div class="h-5 w-5 text-blue-500 ">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+        </svg>
+        
+      </div>
+    </div>
+  </div>
+
+<script  >
+
+ document.addEventListener('astro:page-load', () => {
+
+   const principalElement = document.getElementById('principal') as HTMLElement;
+   const articulo = JSON.parse(principalElement.getAttribute('data-articulo') as string);
+   const mainImage = document.getElementById('mainImage') as HTMLImageElement;
+   const thumbnails = document.querySelectorAll('.thumbnail') as NodeListOf<HTMLButtonElement>;
+   const referencia = document.getElementById('referencia') as HTMLElement;
+   const precio = document.getElementById('precio') as HTMLElement;
+   const descripcion = document.getElementById('descripcion') as HTMLElement;
+ 
+   thumbnails.forEach((thumbnail) => {
+     thumbnail.addEventListener('click', () => {
+       const index = thumbnail.getAttribute('data-index') ;
+       if (index){
+         mainImage.src = articulo.imagenes[index];
+         referencia.textContent = `${articulo.referencias[index]}`;
+         precio.textContent = `${articulo.precio}`;
+          descripcion.textContent = `${articulo.descripciones[index]}`;
+       }
+ 
+       
+       thumbnails.forEach((thumb) => {
+         thumb.classList.remove('ring-2', 'ring-primary', 'ring-offset-2');
+       });
+       thumbnail.classList.add('ring-2', 'ring-primary', 'ring-offset-2');
+     });
+   });
+
+
+ })
+</script>
+
+<style>
+  .ring-primary {
+    --tw-ring-color: #3b82f6;
+  }
+</style>
+
